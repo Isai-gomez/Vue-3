@@ -1,9 +1,9 @@
 <template>
-  <h2>Buscador de pokemon {{ pokemonId }}</h2>
+  <h2>Pulsa enter para burcar pokemon con id {{ pokemonId }}</h2>
   <form @submit.prevent="onSumit">
     <input
       type="number"
-      placeholder="Numero de pokemon"
+      placeholder="Id de pokemon "
       ref="textSearchId"
       v-model="pokemonId"
     />
@@ -19,7 +19,7 @@ export default {
   setup() {
     const router = useRouter()
     const textSearchId = ref()
-    const pokemonId = ref(1)
+    const pokemonId = ref()
     onActivated(() => {
       textSearchId.value.select()
     })

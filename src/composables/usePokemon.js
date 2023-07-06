@@ -1,27 +1,28 @@
 import axios from 'axios'
 import { ref } from 'vue'
-export const getPokemon = (id = 1) => {
+export const getPokemon = (idPokemon = 1) => {
   const pokemon = ref()
   const isLoading = ref(false)
   const messageError = ref()
-  const searchPokemonId = async () => {
+
+  const searchPokemonId = async (id) => {
+    if(!id) return
     isLoading.value = true
     pokemon.value = null
     try {
-      const { data } = await axios('https://pokeapi.co/api/v2/pokemon/', {
-        params: { id },
-      })
+      const { data } = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`)
       pokemon.value = data
       messageError.value = null
-      console.log(data)
     } catch (error) {
-      messageError.value = 'Error al optener la api'
+      messageError.value = 'Error al optener la api' + id;
     }
+    isLoading.value = true
   }
-  searchPokemonId()
+  searchPokemonId(idPokemon)
   return {
     pokemon,
     isLoading,
     messageError,
+    searchPokemonId
   }
 }

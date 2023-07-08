@@ -9,6 +9,10 @@
     <router-link :to="{ name: 'Users' }">Usuorios</router-link>
     |
     <router-link :to="{ name: 'Pokemon' }">Buscar</router-link>
+    |
+    <router-link :to="{ name: 'todo' }">todo</router-link>
+    |
+    <router-link :to="{ name: 'slot' }">Slot</router-link>
   </div>
   <router-view v-slot="{ Component, route }">
     <keep-alive>
@@ -18,12 +22,14 @@
 </template>
 
 <style>
+html, body{
+  color: white;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
   width: 100%;
 }
 
@@ -40,7 +46,7 @@
 #nav a.router-link-exact-active {
   color: #42b983;
 }
-body {
+body,html {
   background: #1e2934;
   color: white;
 }

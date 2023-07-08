@@ -2,7 +2,7 @@
 	<h2 v-if="!pokemon && !messageError">Buscando pokemon con id {{ $route.params.id }}......</h2>
 	<h2 v-else-if="messageError">{{ messageError }}</h2>
 	<template v-else>
-		<h3>{{ pokemon.name }}</h3>
+		<h3>Nombre: {{ pokemon.name}}</h3>
 		<img :src="pokemon.sprites.front_default" :alt="pokemon.name" />
 		<br />
 		<router-link :to="{ name: 'Pokemon' }">Regresar</router-link>
